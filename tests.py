@@ -8,7 +8,7 @@ class TestBooksCollector:
     # обязательно указывать префикс test_
     # дальше идет название метода, который тестируем add_new_book_
     # затем, что тестируем add_two_books - добавление двух книг
-    def test_add_new_book_add_two_books(self):
+    def test_add_new_book_add_two_books_true(self):
         # создаем экземпляр (объект) класса BooksCollector
         collector = BooksCollector()
 
@@ -22,3 +22,15 @@ class TestBooksCollector:
 
     # напиши свои тесты ниже
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
+
+    #Нельзя добавить одну и ту же книгу дважды.
+    def test_add_new_book_add_the_same_book_fail(self):
+        collector = BooksCollector()
+        collector.add_new_book('Гордость и предубеждение и зомби')
+        collector.add_new_book('Гордость и предубеждение и зомби')
+        assert len(collector.get_books_rating()) == 1
+
+
+
+
+
